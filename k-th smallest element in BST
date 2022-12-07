@@ -1,0 +1,23 @@
+class Solution {
+    // Return the Kth smallest element in the given BST
+    int count=0;
+   int ans=-1;
+   public void inorder (Node node,int k){
+     if(node.left != null){
+            inorder(node.left, k);
+        }
+        count++;
+        if(count == k){
+            ans = node.data;
+            return;
+        }
+        if(node.right != null){
+            inorder(node.right, k);
+        }
+   }
+    public int KthSmallestElement(Node root, int K) {
+        // Write your code here
+         inorder(root,K);
+         return ans;
+    }
+}
