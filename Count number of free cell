@@ -1,0 +1,21 @@
+class Solution {
+    long[] countZero(int N, int K, int[][] arr){
+        // code here
+        long[] res = new long[K];
+        long r,c;
+        Set<Long> rSet = new HashSet<Long>();
+        Set<Long> cSet = new HashSet<Long>();
+        for(int t = 0; t < K; t++) {
+            r = arr[t][0] - 1;
+            c = arr[t][1] - 1;
+            if(!rSet.contains(r)) {
+                rSet.add(r);
+            }
+            if(!cSet.contains(c)) {
+                cSet.add(c);
+            }
+            res[t] = (N*N) - ((rSet.size() * N) + (cSet.size() * N) - (rSet.size() * cSet.size()));
+        }
+        return res;
+    }
+}
