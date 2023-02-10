@@ -1,0 +1,12 @@
+class Solution {
+    public int maxInstance(String s) {
+        // Code here
+        int[] v=new int[26];
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            v[ch-'a']++;
+        }
+        //balloon ->0-a,1-b,11-l,14-o,13-n
+        return Math.min(Math.min(v[0],v[1]),Math.min(Math.min(v[11]/2,v[14]/2),v[13]));
+    }
+}
