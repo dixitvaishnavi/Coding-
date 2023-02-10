@@ -1,0 +1,17 @@
+class Solution:
+    def maxDistance(self, grid: List[List[int]]) -> int:
+        N = len(grid)
+        queue = deque([(i,j,0) for i in range(N) for j in range(N) if grid[i][j]==1])
+        seen = set([(cell[0], cell[1]) for cell in queue])
+        farthest = -1
+        while queue:
+            i, j, dist = queue.popleft()
+            for di, dj in [(-1, 0), (+1, 0), (0, -1), (0, +1)]: 
+                if not 0<=i+di<N or not 0<=j+dj<N or grid[i+di][j+dj]==1:
+                    continue
+                if (i+di, j+dj) in seen:
+                    continue
+                queue.append((i+di, j+dj, dist+1))
+                seen.add((i+di, j+dj))
+                farthest = max(farthest, dist+1)
+        return farthest 
