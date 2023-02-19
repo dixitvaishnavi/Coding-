@@ -1,0 +1,40 @@
+class Solution {
+    public Node correctBST(Node root) {
+        // code here.
+        List<Node> list = new ArrayList<>();
+        inOrder(root, list);
+        
+        int idx1 = -1, idx2 = -1;
+        
+        for(int i=0; i<list.size()-1; i++)  {
+            if(list.get(i).data > list.get(i+1).data)  {   
+                if(idx1 == -1) idx1 = i;
+                else idx2 = i+1;
+            }
+        }
+        
+        if(idx2 == -1) swap(list, idx1, idx1+1);
+        else swap(list, idx1, idx2);
+        
+        return root;
+    }
+    
+    private void swap(List<Node> list, int i, int j)
+    {
+        Node node1 = list.get(i);
+        Node node2 = list.get(j);
+        
+        int temp = node1.data;
+        node1.data = node2.data;
+        node2.data = temp;
+    }
+    
+    private void inOrder(Node root, List<Node> list)
+    {
+        if(root == null) return;
+        
+        inOrder(root.left, list);
+        list.add(root);
+        inOrder(root.right, list);
+    }
+}
