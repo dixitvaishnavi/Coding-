@@ -1,0 +1,8 @@
+class Solution{
+    static int findWinner(int n, int A[]){
+        // code here
+             int ans=0;
+        for(int i:A)ans^=i;
+        return ans==0?1:((n%2==0)?1:2);
+}
+}
