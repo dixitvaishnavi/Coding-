@@ -1,0 +1,32 @@
+class Solution {
+      static Boolean[][] memo;
+
+    static boolean find(int[] coins, int n, int accumulated) {
+        if (n < 0) {
+            return false;
+        }
+
+        if (memo[n][accumulated] != null) {
+            return memo[n][accumulated];
+        }
+
+        int take = coins[n] + accumulated;
+        int not = accumulated;
+
+        if (take % 24 == 0 || take % 20 == 0 || take == 2024) {
+            memo[n][accumulated] = true;
+            return true;
+        }
+
+        memo[n][accumulated] = find(coins, n - 1, take) || find(coins, n - 1, not);
+        return memo[n][accumulated];
+    }
+    public static boolean isPossible(int N, int[] coins) {
+        // code here
+         memo = new Boolean[N][2025];
+        
+        // code here
+        return find(coins, N - 1, 0);
+    }
+}
+        
