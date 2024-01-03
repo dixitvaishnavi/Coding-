@@ -1,0 +1,6 @@
+public static void utility(String MyInput){
+    //Write your code below that prints myInput
+System.out.println(MyInput);
+
+    //Write your code below that prints myInput
+}
