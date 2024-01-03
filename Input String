@@ -1,0 +1,10 @@
+// BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+//Complete the below code
+        
+String myInput =read.readLine();
+        
+//Complete the below code
+    
+System.out.println(myInput);
+
+//read.close();
