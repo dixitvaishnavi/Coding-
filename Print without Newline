@@ -1,0 +1,7 @@
+public static void utility(String a, String b){
+     
+    //Write your code below. 
+
+System.out.print(a+" "+b);
+    //Write your code below.
+}
