@@ -1,0 +1,7 @@
+//User function Template for Java
+//Scanner scn=new Scanner(System.in);
+//Complete the code
+int myInput=scn.nextInt();
+//Complete the code
+System.out.println(myInput + 10);
+//scn.close();
