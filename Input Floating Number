@@ -1,0 +1,8 @@
+//Scanner scn=new Scanner(System.in);
+
+//Complete the code
+double myInput=scn.nextDouble();
+//Complete the code
+System.out.println(myInput * 10);
+
+//scn.close();
